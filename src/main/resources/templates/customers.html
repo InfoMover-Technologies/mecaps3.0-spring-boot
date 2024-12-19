@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -10,6 +10,17 @@
     the final HTML will be rendered to the browser-->
 <div style="margin: 100px;">
     <h1>Customers</h1>
+
+    <div>
+
+        <div>
+            <!--            The parsing of this template (replacing ${customerId} with what ever the value of
+            customerId attribute is in the Model object (java) will happen server side-->
+            <p>Customer ID: <span th:text="${customerId}"></span></p>
+            <p>Customer Name: <span th:text="${customerName}"></span></p>
+        </div>
+
+    </div>
 
 </div>
 </body>
