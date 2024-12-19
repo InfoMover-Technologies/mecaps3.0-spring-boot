@@ -20,6 +20,46 @@
             <p>Customer Name: <span th:text="${customerName}"></span></p>
         </div>
 
+        <hr/>
+
+        <div>
+            <h2>Customer List</h2>
+
+            <!-- Check if customers list exists and is not empty -->
+            <div th:if="${#lists.isEmpty(customers)}">
+                <p>No customers found.</p>
+            </div>
+
+            <!-- Display customers in a table if list is not empty -->
+            <table th:unless="${#lists.isEmpty(customers)}"
+                   style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">ID</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Iterate over the customers list -->
+                <tr th:each="customer : ${customers}">
+                    <td style="padding: 12px; text-align: left; border: 1px solid #ddd;" th:text="${customer.id}">123
+                    </td>
+                    <td style="padding: 12px; text-align: left; border: 1px solid #ddd;" th:text="${customer.name}">John
+                        Doe
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- Alternative display using unordered list -->
+            <ul th:unless="${#lists.isEmpty(customers)}" style="display: none;">
+                <li th:each="customer : ${customers}">
+                    ID: <span th:text="${customer.id}">123</span>,
+                    Name: <span th:text="${customer.name}">John Doe</span>
+                </li>
+            </ul>
+        </div>
+
     </div>
 
 </div>
