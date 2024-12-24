@@ -3,6 +3,7 @@ package com.im.training.springboot.controllers;
 
 import com.im.training.springboot.model.Customer;
 import com.im.training.springboot.model.CustomerRepository;
+import com.im.training.springboot.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,9 +19,10 @@ import java.util.List;
 public class CustomerController {
 
     @Autowired
-    CustomerRepository customerRepository;
+    CustomerService customerService;
 
-    @GetMapping(path = "/customers")
+
+    @GetMapping(path = "/customers-view")
     public String handleGetCustomerView(Model model) {
 
         String customerId = "101";
@@ -32,7 +34,7 @@ public class CustomerController {
 //
 //        );
 //
-        List<Customer> customers = customerRepository.findAll();
+        List<Customer> customers = customerService.getCustomers();
         model.addAttribute("customerId", customerId);
         model.addAttribute("customerName", customerName);
 
