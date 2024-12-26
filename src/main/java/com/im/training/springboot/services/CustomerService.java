@@ -47,7 +47,7 @@ public class CustomerService {
         Optional<Customer> optCustomer = customerDAO
                 .findById(customer.getId());
         if (optCustomer.isPresent()) {
-            throw new RuntimeException("Customer already exists with id: " + customer.getId());
+            throw new RuntimeException("Customer already exists with this id (You Idiot): " + customer.getId());
         }
         return customerDAO.save(customer);
     }
