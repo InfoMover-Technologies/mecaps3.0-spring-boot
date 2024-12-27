@@ -14,7 +14,7 @@ public class MyRestControllerAdvisor {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ExceptionMessage> exceptionHandler(Exception exception, HttpServletRequest request) {
 
-        System.out.println("handling exception");
+
 
         ExceptionMessage exceptionMessage = new ExceptionMessage();
 
